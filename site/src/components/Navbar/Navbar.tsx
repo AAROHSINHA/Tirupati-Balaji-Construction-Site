@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Navlinks } from "./components/Navlinks.tsx";
 import { MobileMenuButton } from "./components/MobileMenuButton.tsx";
 import { CompanyName } from "./components/CompanyName.tsx";
@@ -9,17 +9,14 @@ import ToolTip from "./components/ToolTip.tsx";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
-  const [className, setClassName] = useState("hidden absolute z-10 m-[3em]");
-
-  useEffect(() => {
-    if (!isHover) {
-      setClassName("hidden absolute z-10 m-[3em]");
-    } else setClassName("absolute z-10 m-[3em]");
-  }, [isHover]);
 
   return (
-    <nav className="w-full flex flex-col lg:flex-row">
-      <ToolTip className={className} setIsHover={setIsHover} />
+    <nav className="fixed top-0 left-0 w-full flex flex-col lg:flex-row z-50">
+      <ToolTip
+        className={`${isHover ? "absolute z-10 m-[3em]" : "hidden"}`}
+        setIsHover={setIsHover}
+      />
+
       {/* Logo Section */}
       <div className="bg-yellow-400 px-6 py-4 lg:px-8 lg:py-6 flex items-center justify-between lg:justify-start lg:min-w-80">
         <div className="flex items-center space-x-3">
@@ -38,13 +35,6 @@ export default function Navbar() {
           isMenuOpen={isMenuOpen}
           setIsMenuOpen={setIsMenuOpen}
         />
-        {/* <button
-          onClick={toggleMenu}
-          className="lg:hidden text-gray-800 hover:text-gray-600 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button> */}
       </div>
 
       {/* Navigation Links */}
