@@ -4,10 +4,10 @@ import LeftText from "./components/LeftText";
 
 export default function HeroSection() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
           backgroundImage: `url(${mumbai1})`,
           backgroundPosition: "50% 0%",
