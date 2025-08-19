@@ -1,24 +1,42 @@
-import Navbar from "./components/Navbar/Navbar.tsx";
-import HeroSection from "./components/HeroSection/HeroSection.tsx";
-import ServicesSection from "./components/ServicesSection/ServicesSection.tsx";
-import AboutSection from "./components/AboutSection/AboutSection.tsx";
-import StatsSection from "./components/StatsSection/StatsSection.tsx";
-import GallerySection from "./components/GallerySection/GallerySection.tsx";
-import ContactSection from "./components/ContactSection/ContactSection.tsx";
-import Footer from "./components/Footer/Footer.tsx";
+import { useRef } from "react";
+import NavbarContext from "./NavbarContext";
+import Navbar from "./components/Navbar/Navbar";
+import HeroSection from "./components/HeroSection/HeroSection";
+import ServicesSection from "./components/ServicesSection/ServicesSection";
+import AboutSection from "./components/AboutSection/AboutSection";
+import GallerySection from "./components/GallerySection/GallerySection";
+import ContactSection from "./components/ContactSection/ContactSection";
+import Footer from "./components/Footer/Footer";
 
 function App() {
+  const homeRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="overflow-hidden">
+    <NavbarContext.Provider
+      value={{ homeRef, servicesRef, aboutRef, galleryRef, contactRef }}
+    >
       <Navbar />
-      <HeroSection />
-      <ServicesSection />
-      <AboutSection />
-      <StatsSection />
-      <GallerySection />
-      <ContactSection />
+      <div ref={homeRef}>
+        <HeroSection />
+      </div>
+      <div ref={servicesRef}>
+        <ServicesSection />
+      </div>
+      <div ref={aboutRef}>
+        <AboutSection />
+      </div>
+      <div ref={galleryRef}>
+        <GallerySection />
+      </div>
+      <div ref={contactRef}>
+        <ContactSection />
+      </div>
       <Footer />
-    </div>
+    </NavbarContext.Provider>
   );
 }
 

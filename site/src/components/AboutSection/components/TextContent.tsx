@@ -10,20 +10,27 @@ export default function TextContent() {
 
       <div className="text-gray-600 leading-relaxed text-base">
         <p>
-          I'm a paragraph. Click here to add your own text and edit me. It's
-          easy. Just click "Edit Text" or double click me to add your own
-          content and make changes to the font. Feel free to drag and drop me
-          anywhere you like on your page. I'm a great place for you to tell a
-          story and let your users know a little more about you.
+          Tirupati Balaji Constructions, based in Mumbai, is your trusted
+          partner for all kinds of construction and renovation needs. With years
+          of expertise, we specialize in delivering complete solutions for both
+          residential and commercial projects. From{" "}
+          <b>building strong structures</b>
+          to <b>designing functional and stylish interiors</b>, we handle every
+          aspect of construction with precision and care. Our services cover
+          everything from <b>plumbing</b>, <b>painting</b>, <b>flooring</b>, and{" "}
+          <b>bathroom construction</b> to <b>full-scale home development</b>,
+          ensuring seamless work from the outside framework to the finest
+          interior details.
         </p>
         <br />
         <p>
-          This is a great space to write long text about your company and your
-          services. You can use this space to go into a little more detail about
-          your company. Talk about your team and what services you provide. Tell
-          your visitors the story of how you came up with the idea for your
-          business and what makes you different from your competitors. Make your
-          company stand out and show your visitors who you are.
+          We believe in quality craftsmanship, timely project completion, and
+          customer satisfaction, making us a reliable choice for clients seeking
+          durability and aesthetic excellence. At Tirupati Balaji Constructions,
+          we combine technical knowledge with innovative design to create spaces
+          that stand the test of time. Whether it’s a small renovation or a
+          complete home construction, we are committed to turning your vision
+          into reality with professionalism and dedication.
         </p>
       </div>
     </div>
