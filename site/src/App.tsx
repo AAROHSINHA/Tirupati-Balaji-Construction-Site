@@ -5,7 +5,7 @@ import AboutSection from "./components/AboutSection/AboutSection.tsx";
 import StatsSection from "./components/StatsSection/StatsSection.tsx";
 import GallerySection from "./components/GallerySection/GallerySection.tsx";
 import ContactSection from "./components/ContactSection/ContactSection.tsx";
-import GoogleMapEmbed from "./components/ContactSection/components/GoogleMapEmbed.tsx";
+import Footer from "./components/Footer/Footer.tsx";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <StatsSection />
       <GallerySection />
       <ContactSection />
+      <Footer />
     </div>
   );
 }
