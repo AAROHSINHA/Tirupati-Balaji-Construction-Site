@@ -9,6 +9,7 @@ export const services = [
     description:
       "Transform your living space from the inside out. Includes painting, plastering, bathroom renovations, flooring, and complete interior makeovers with attention to detail and durability.",
     image: interior,
+    route: "/interior-and-finishing",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const services = [
     description:
       "Reliable solutions for essential systems. Covers plumbing installation and repairs, bathroom fittings, and utility connections to keep your home or business running smoothly.",
     image: plumbing,
+    route: "/plumbing-and-utilities",
   },
   {
     id: 3,
@@ -23,5 +25,6 @@ export const services = [
     description:
       "From foundation to final touches. Complete residential and commercial construction, extensions, and renovations — delivering strong structures with modern design and long-lasting quality for every project.",
     image: construction,
+    route: "/construction-and-remodelling",
   },
 ];

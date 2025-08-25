@@ -1,8 +1,9 @@
-import mumbai1 from "../../../assets/mumbai1.webp";
-import services33 from "../../../assets/services33.webp";
-import services32 from "../../../assets/services32.webp";
-import services31 from "../../../assets/services31.webp";
+// import mumbai1 from "../../../assets/mumbai1.webp";
+// import services33 from "../../../assets/services33.webp";
+// import services32 from "../../../assets/services32.webp";
+// import services31 from "../../../assets/services31.webp";
 import { services } from "../services.ts";
+import { Link } from "react-router-dom";
 export default function Services() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
@@ -31,7 +32,7 @@ export default function Services() {
             </p>
 
             <p className="text-left px-2 text-base font-semibold text-yellow-500 cursor-pointer my-2 hover:text-yellow-300 transition-colors duration-200">
-              View Gallery
+              <Link to={service.route}>Know More</Link>
             </p>
           </div>
         </div>

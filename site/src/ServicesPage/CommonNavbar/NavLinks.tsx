@@ -1,9 +1,12 @@
 import NavbarButton from "./NavbarButton";
+import { useNavigate } from "react-router-dom";
+
 interface NavLinksInterface {
   isMenuOpen: boolean;
 }
 
 export const Navlinks = ({ isMenuOpen }: NavLinksInterface) => {
+  const navigate = useNavigate();
   return (
     <div
       className={`bg-gray-700 flex-1 ${
@@ -12,7 +15,7 @@ export const Navlinks = ({ isMenuOpen }: NavLinksInterface) => {
     >
       <ul className="flex flex-col lg:flex-row lg:items-center lg:justify-end lg:h-full lg:px-8">
         <NavbarButton title="CONTACT US" />
-        <NavbarButton title="HOME" />
+        <NavbarButton title="HOME" onClick={() => navigate("/")} />
       </ul>
     </div>
   );

@@ -28,7 +28,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" id="contact">
       <h1 className="text-2xl font-bold text-foreground">Contact Us</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
