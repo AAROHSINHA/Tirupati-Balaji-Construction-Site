@@ -4,6 +4,7 @@ import PlumbingPage from "./ServicesPage/ServicePages/PlumbingPage.tsx";
 import ConstructionPage from "./ServicesPage/ServicePages/ConstructionPage.tsx";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import GallerySection from "./ServicesPage/ServicePages/GallerySection.tsx";
 
 function App() {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ function App() {
         path="/construction-and-remodelling"
         element={<ConstructionPage />}
       />
+      <Route path="/gallery" element={<GallerySection />} />
     </Routes>
   );
 }

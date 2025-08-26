@@ -7,10 +7,12 @@ import Footer from "../../components/Footer/Footer.tsx";
 import ContactButton from "../CommonComponents/ContactButton.tsx";
 import { constructionDescription } from "./content.ts";
 import { constructionCardData } from "./content.ts";
+import Floating from "../CommonComponents/Floating.tsx";
 
 export default function ConstructionPage() {
   return (
     <div>
+      <Floating />
       <Navbar />
       <Header title="CONSTRUCTION AND REMODELLING" />
       <Content

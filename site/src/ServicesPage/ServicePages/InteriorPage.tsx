@@ -7,10 +7,12 @@ import Footer from "../../components/Footer/Footer.tsx";
 import ContactButton from "../CommonComponents/ContactButton.tsx";
 import { interiorDescription } from "./content.ts";
 import { interiorCardData } from "./content.ts";
+import Floating from "../CommonComponents/Floating.tsx";
 
 export default function InteriorPage() {
   return (
     <div>
+      <Floating />
       <Navbar />
       <Header title="INTERIOR AND FINISHING" />
       <Content

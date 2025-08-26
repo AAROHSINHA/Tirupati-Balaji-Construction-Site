@@ -7,10 +7,12 @@ import Footer from "../../components/Footer/Footer.tsx";
 import ContactButton from "../CommonComponents/ContactButton.tsx";
 import { plumbingDescription } from "./content.ts";
 import { plumbingCardData } from "./content.ts";
+import Floating from "../CommonComponents/Floating.tsx";
 
 export default function PlumbingPage() {
   return (
     <div>
+      <Floating />
       <Navbar />
       <Header title="PLUMBING AND UTILITIES" />
       <Content
