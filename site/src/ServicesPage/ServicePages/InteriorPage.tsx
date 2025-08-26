@@ -1,13 +1,11 @@
 import Navbar from "../CommonNavbar/Navbar.tsx";
 import Header from "../CommonComponents/Header.tsx";
 import Content from "../CommonComponents/Content.tsx";
-import img7 from "../../assets/Gallery/img7.webp";
+import img from "../../assets/Gallery/img4.webp";
 import CardsGrid from "../CommonComponents/CardsGrid.tsx";
 import Footer from "../../components/Footer/Footer.tsx";
 import ContactButton from "../CommonComponents/ContactButton.tsx";
-
-const desc =
-  "We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect.";
+import { interiorDescription } from "./content.ts";
 
 const cardData = [
   {
@@ -55,8 +53,8 @@ export default function InteriorPage() {
       <Header title="INTERIOR AND FINISHING" />
       <Content
         title="Transform Your Interiors"
-        description={desc}
-        imgSrc={img7}
+        description={interiorDescription}
+        imgSrc={img}
       />
       <CardsGrid cards={cardData} />
       <ContactButton />

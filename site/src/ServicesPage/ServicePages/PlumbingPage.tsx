@@ -5,9 +5,7 @@ import img7 from "../../assets/Gallery/img5.webp";
 import CardsGrid from "../CommonComponents/CardsGrid.tsx";
 import Footer from "../../components/Footer/Footer.tsx";
 import ContactButton from "../CommonComponents/ContactButton.tsx";
-
-const desc =
-  "We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect. We design elegant and practical interiors that reflect your lifestyle. From planning to execution, our team ensures every detail is perfect.";
+import { plumbingDescription } from "./content.ts";
 
 const cardData = [
   {
@@ -55,7 +53,7 @@ export default function PlumbingPage() {
       <Header title="PLUMBING AND UTILITIES" />
       <Content
         title="Transform Your Interiors"
-        description={desc}
+        description={plumbingDescription}
         imgSrc={img7}
       />
       <CardsGrid cards={cardData} />

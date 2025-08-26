@@ -7,6 +7,7 @@ import AboutSection from "./components/AboutSection/AboutSection";
 import GallerySection from "./components/GallerySection/GallerySection";
 import ContactSection from "./components/ContactSection/ContactSection";
 import Footer from "./components/Footer/Footer";
+import StatsSection from "./components/StatsSection/StatsSection";
 
 function App() {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -29,6 +30,7 @@ function App() {
       <div ref={aboutRef}>
         <AboutSection />
       </div>
+      <StatsSection />
       <div ref={galleryRef}>
         <GallerySection />
       </div>
