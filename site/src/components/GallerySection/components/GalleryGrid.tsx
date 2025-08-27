@@ -12,6 +12,7 @@ export default function GalleryGrid() {
             src={image.src || "/placeholder.svg"}
             alt={image.alt}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="lazy"
           />
         </div>
       ))}

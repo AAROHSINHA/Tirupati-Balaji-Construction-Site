@@ -21,6 +21,7 @@ export default function Content({
               src={imgSrc}
               alt={imgAlt}
               className="w-full max-h-5xl object-cover"
+              loading="lazy"
             />
           </div>
         </div>

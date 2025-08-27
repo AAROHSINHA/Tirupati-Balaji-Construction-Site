@@ -3,6 +3,7 @@ import Gallery from "../CommonComponents/Gallery";
 import Navbar from "../CommonNavbar/Navbar";
 import Header from "../CommonComponents/Header";
 import Footer from "../../components/Footer/Footer";
+import ContactButton from "../CommonComponents/ContactButton";
 
 export default function GallerySection() {
   return (
@@ -10,6 +11,7 @@ export default function GallerySection() {
       <Navbar />
       <Header title="GALLERY" />
       <Gallery images={galleryImages} />
+      <ContactButton />
       <Footer />
     </>
   );
