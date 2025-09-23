@@ -5,22 +5,20 @@ export default function () {
       <div className="space-y-4 text-md text-gray-600">
         <address className="not-italic leading-relaxed">
           <div className="font-semibold text-gray-900">
-            500 Terry Francine Street
+            C-1166 Near plot 67, Gorai
           </div>
-          <div>San Francisco, CA 94158</div>
+          <div>Borivali West, Mumbai - 400091</div>
         </address>
         <div className="space-y-2">
           <a
             href="mailto:info@mysite.com"
             className="block font-semibold text-gray-900 hover:text-blue-600 transition-colors"
-          >
-            info@mysite.com
-          </a>
+          ></a>
           <a
             href="tel:123-456-7890"
             className="block font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            Tel: 123-456-7890
+            Tel: +91 99878 87573
           </a>
         </div>
       </div>

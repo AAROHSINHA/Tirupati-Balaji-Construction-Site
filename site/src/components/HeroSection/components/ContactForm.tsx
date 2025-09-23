@@ -1,6 +1,35 @@
+import { useState } from "react";
+import axios from "axios";
+import { useContext } from "react";
+import NavbarContext from "../../../NavbarContext";
+import ErrorModal from "../../ErrorModal";
+
 export default function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
+
+  const setSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log([name, email, phone, message]);
+    if (!name || !email || !phone || !message) return;
+    try {
+      axios.post("http://localhost:3000/send-email", {
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+      });
+    } catch (error) {
+      setError(true);
+    }
+  };
+
   return (
     <div className="w-full max-w-lg mx-auto p-6">
+      <ErrorModal isOpen={error} onClose={() => setError(false)} />
       <div className="backdrop-blur-md bg-black/10 rounded-2xl p-6 border border-white/10 shadow-2xl">
         <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
           Request Free Construction Consultation
@@ -13,6 +42,7 @@ export default function ContactForm() {
               type="text"
               placeholder="Enter Your Name"
               className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -22,6 +52,7 @@ export default function ContactForm() {
               type="email"
               placeholder="Enter Your Email"
               className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -31,6 +62,7 @@ export default function ContactForm() {
               type="tel"
               placeholder="Enter Your Phone Number"
               className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
 
@@ -40,13 +72,15 @@ export default function ContactForm() {
               placeholder="Enter your project details"
               rows={4}
               className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 resize-none"
+              onChange={(e) => setMessage(e.target.value)}
             />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl hover:cursor-pointer"
+            onClick={setSubmit}
           >
             Submit
           </button>

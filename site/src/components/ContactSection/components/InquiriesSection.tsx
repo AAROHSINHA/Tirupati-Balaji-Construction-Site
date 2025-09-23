@@ -8,7 +8,7 @@ export default function InquiriesSection() {
           href="tel:123-456-7890"
           className="font-semibold text-gray-900 hover:text-blue-600 transition-colors"
         >
-          123-456-7890
+          9987897573
         </a>{" "}
         {/* or fill out the following form */}
       </p>

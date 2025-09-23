@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import NavbarContext from "./NavbarContext";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
@@ -8,6 +8,7 @@ import GallerySection from "./components/GallerySection/GallerySection";
 import ContactSection from "./components/ContactSection/ContactSection";
 import Footer from "./components/Footer/Footer";
 import StatsSection from "./components/StatsSection/StatsSection";
+import ErrorModal from "./components/ErrorModal";
 
 function App() {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -15,11 +16,20 @@ function App() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
 
   return (
     <NavbarContext.Provider
-      value={{ homeRef, servicesRef, aboutRef, galleryRef, contactRef }}
+      value={{
+        homeRef,
+        servicesRef,
+        aboutRef,
+        galleryRef,
+        contactRef,
+        setOpen,
+      }}
     >
+      <ErrorModal isOpen={open} onClose={() => setOpen(!open)} />
       <Navbar />
       <div ref={homeRef}>
         <HeroSection />

@@ -6,6 +6,7 @@ interface NavbarRefs {
   aboutRef: React.RefObject<HTMLDivElement | null>;
   galleryRef: React.RefObject<HTMLDivElement | null>;
   contactRef: React.RefObject<HTMLDivElement | null>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const NavbarContext = createContext<NavbarRefs | null>(null);

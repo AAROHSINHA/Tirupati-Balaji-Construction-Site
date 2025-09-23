@@ -1,7 +1,9 @@
 "use client";
+import axios from "axios";
 
 import type React from "react";
 import { useState } from "react";
+import ErrorModal from "../../ErrorModal";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
+  const [error, setError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,11 +27,27 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    const { firstName, lastName, email, subject, message } = formData;
+    console.log("Hello");
+    if (!firstName || !lastName || !email || !subject || !message) {
+      return;
+    }
+    try {
+      axios.post("http://localhost:3000/send-email", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        subject: subject,
+        message: message,
+      });
+    } catch (error) {
+      setError(true);
+    }
   };
 
   return (
     <div className="space-y-6" id="contact">
+      <ErrorModal isOpen={error} onClose={() => setError(false)} />
       <h1 className="text-2xl font-bold text-foreground">Contact Us</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
