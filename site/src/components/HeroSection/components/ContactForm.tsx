@@ -16,12 +16,15 @@ export default function ContactForm() {
     console.log([name, email, phone, message]);
     if (!name || !email || !phone || !message) return;
     try {
-      await axios.post("http://localhost:3000/send-email", {
-        name: name,
-        email: email,
-        phone: phone,
-        message: message,
-      });
+      await axios.post(
+        "https://tirupati-balaji-construction-site-1.onrender.com/send-email",
+        {
+          name: name,
+          email: email,
+          phone: phone,
+          message: message,
+        }
+      );
     } catch (error) {
       setError(true);
     }

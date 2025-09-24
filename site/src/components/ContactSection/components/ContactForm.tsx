@@ -33,13 +33,16 @@ export default function ContactForm() {
       return;
     }
     try {
-      await axios.post("http://localhost:3000/send-form", {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        subject: subject,
-        message: message,
-      });
+      await axios.post(
+        "https://tirupati-balaji-construction-site-1.onrender.com/send-form",
+        {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          subject: subject,
+          message: message,
+        }
+      );
     } catch (error) {
       setError(true);
     }
