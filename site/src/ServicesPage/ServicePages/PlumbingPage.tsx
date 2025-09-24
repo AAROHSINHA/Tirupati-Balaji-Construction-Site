@@ -15,11 +15,7 @@ export default function PlumbingPage() {
       <Floating />
       <Navbar />
       <Header title="PLUMBING AND UTILITIES" />
-      <Content
-        title="Transform Your Interiors"
-        description={plumbingDescription}
-        imgSrc={img7}
-      />
+      <Content description={plumbingDescription} imgSrc={img7} />
       <CardsGrid cards={plumbingCardData} />
       <ContactButton />
       <Footer />

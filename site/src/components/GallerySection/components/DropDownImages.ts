@@ -10,7 +10,6 @@ import img14 from "../../../assets/Gallery/img14.webp";
 import img16 from "../../../assets/Gallery/img16.webp";
 import img17 from "../../../assets/Gallery/img17.webp";
 import img18 from "../../../assets/Gallery/img18.webp";
-import img20 from "../../../assets/Gallery/img20.webp";
 
 const DropDownImages = [
   {

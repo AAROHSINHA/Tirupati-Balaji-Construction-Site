@@ -15,11 +15,7 @@ export default function InteriorPage() {
       <Floating />
       <Navbar />
       <Header title="INTERIOR AND FINISHING" />
-      <Content
-        title="Transform Your Interiors"
-        description={interiorDescription}
-        imgSrc={img}
-      />
+      <Content description={interiorDescription} imgSrc={img} />
       <CardsGrid cards={interiorCardData} />
       <ContactButton />
       <Footer />

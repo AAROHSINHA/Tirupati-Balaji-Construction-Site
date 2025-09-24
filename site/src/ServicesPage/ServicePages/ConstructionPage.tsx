@@ -15,11 +15,7 @@ export default function ConstructionPage() {
       <Floating />
       <Navbar />
       <Header title="CONSTRUCTION AND REMODELLING" />
-      <Content
-        title="Transform Your Interiors"
-        description={constructionDescription}
-        imgSrc={img}
-      />
+      <Content description={constructionDescription} imgSrc={img} />
       <CardsGrid cards={constructionCardData} />
       <ContactButton />
       <Footer />

@@ -4,10 +4,7 @@ interface NavbarButtonProps {
   onClick?: () => void;
 }
 
-export default function NavbarButton({
-  title = "",
-  onClick,
-}: NavbarButtonProps) {
+export default function NavbarButton({ title = "" }: NavbarButtonProps) {
   const route = title == "HOME" ? "/" : "/#contact";
   const navigate = useNavigate();
   const handleRoute = () => {

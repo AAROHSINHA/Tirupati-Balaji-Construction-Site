@@ -17,10 +17,8 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function MyMap() {
-  const [position, setPosition] = useState<LatLngExpression>([
-    37.7749, -122.4194,
-  ]);
-  const [locationName, setLocationName] = useState("Sphere Construction");
+  const [position] = useState<LatLngExpression>([37.7749, -122.4194]);
+  const [locationName] = useState("Sphere Construction");
 
   return (
     <div className="flex items-center justify-center h-auto px-10">

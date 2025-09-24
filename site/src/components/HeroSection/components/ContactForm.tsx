@@ -1,7 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { useContext } from "react";
-import NavbarContext from "../../../NavbarContext";
 import ErrorModal from "../../ErrorModal";
 
 export default function ContactForm() {

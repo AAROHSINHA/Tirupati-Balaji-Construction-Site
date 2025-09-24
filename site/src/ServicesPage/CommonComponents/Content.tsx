@@ -1,12 +1,10 @@
 interface ContentProps {
-  title: string;
   description: string;
   imgSrc: string;
   imgAlt?: string;
 }
 
 export default function Content({
-  title,
   description,
   imgSrc,
   imgAlt = "Service image",
