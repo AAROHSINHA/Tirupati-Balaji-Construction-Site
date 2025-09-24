@@ -11,12 +11,12 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
 
-  const setSubmit = (e: React.FormEvent) => {
+  const setSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log([name, email, phone, message]);
     if (!name || !email || !phone || !message) return;
     try {
-      axios.post("http://localhost:3000/send-email", {
+      await axios.post("http://localhost:3000/send-email", {
         name: name,
         email: email,
         phone: phone,

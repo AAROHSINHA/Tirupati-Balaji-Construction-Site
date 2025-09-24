@@ -25,7 +25,7 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { firstName, lastName, email, subject, message } = formData;
     console.log("Hello");
@@ -33,7 +33,7 @@ export default function ContactForm() {
       return;
     }
     try {
-      axios.post("http://localhost:3000/send-email", {
+      await axios.post("http://localhost:3000/send-form", {
         firstName: firstName,
         lastName: lastName,
         email: email,

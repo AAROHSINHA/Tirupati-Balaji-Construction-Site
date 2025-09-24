@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5174", // Allow your frontend origin
+    origin: "http://localhost:5173", // Allow your frontend origin
   })
 );
 
@@ -31,7 +31,7 @@ app.post("/send-email", async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_RECEIVER,
-    subject: `CONTACT FORM SUBMISSION FROM ${name ? name : "ANONYMOUS"}`,
+    subject: `PROJECT DETAILS SUBMISSION FROM ${name ? name : "ANONYMOUS"}`,
     text: `
     Name: ${name}
     Email: ${email}
@@ -57,7 +57,7 @@ app.post("/send-form", async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_RECEIVER,
-    subject: `Contact Form Submission: ${subject ? subject : "No Subject"}`,
+    subject: `CONTACT FORM SUBMISSIONS: ${subject ? subject : "No Subject"}`,
     text: `
       First Name: ${firstName}
       Last Name: ${lastName}
