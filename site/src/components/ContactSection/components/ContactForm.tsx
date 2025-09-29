@@ -34,7 +34,7 @@ export default function ContactForm() {
     }
     try {
       await axios.post(
-        "https://tirupati-balaji-construction-site-1.onrender.com/send-form",
+        "https://tirupati-balaji-construction-site-zkn6.onrender.com/send-form",
         {
           firstName: firstName,
           lastName: lastName,

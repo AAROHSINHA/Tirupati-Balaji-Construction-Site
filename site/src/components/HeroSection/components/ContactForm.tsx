@@ -15,7 +15,7 @@ export default function ContactForm() {
     if (!name || !email || !phone || !message) return;
     try {
       await axios.post(
-        "https://tirupati-balaji-construction-site-1.onrender.com/send-email",
+        "https://tirupati-balaji-construction-site-zkn6.onrender.com/send-email",
         {
           name: name,
           email: email,
