@@ -10,7 +10,7 @@ app.use(
   cors({
     // origin: "http://localhost:5173", // Allow your frontend origin
     // origin: "https://tirupati-balaji-construction-site.vercel.app",
-    origin: "https://tirupati-balaji-construction-site-853yfhm6w.vercel.app",
+    origin: "https://tirupati-balaji-construction-site-nine.vercel.app/",
   })
 );
 
