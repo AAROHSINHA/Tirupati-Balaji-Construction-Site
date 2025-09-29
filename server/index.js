@@ -6,14 +6,16 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-app.use(
-  cors({
-    // origin: "http://localhost:5173", // Allow your frontend origin
-    // origin: "https://tirupati-balaji-construction-site.vercel.app",
-    origin: "https://tirupati-balaji-construction-site-nine.vercel.app",
-  })
-);
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "https://tirupati-balaji-construction-site-nine.vercel.app",
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
 
+app.use(cors(corsOptions));
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
