@@ -1,11 +1,12 @@
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="w-full border-t border-gray-200 py-6 px-8 flex flex-col sm:flex-row items-center justify-between">
       {/* Left side - text */}
       <p className="text-sm text-gray-600">
-        © 2025 by Tirupari Balaji Constructions Com.,.
+        © {currentYear} by Tirupari Balaji Constructions
       </p>
 
       {/* Right side - icons */}
