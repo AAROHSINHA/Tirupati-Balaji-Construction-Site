@@ -25,6 +25,7 @@ export default function ContactForm() {
       );
     } catch (error) {
       setError(true);
+      console.log(error);
     }
   };
 
