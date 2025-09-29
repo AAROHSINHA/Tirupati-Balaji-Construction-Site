@@ -12,18 +12,16 @@ export default function AboutSection() {
 
         {/* Right side image */}
         <div
-          className="relative h-80 lg:h-auto absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+          className="
+    relative h-80 lg:h-auto absolute inset-0 
+    bg-cover bg-center bg-no-repeat 
+    lg:bg-fixed
+  "
           style={{
             backgroundImage: `url(${about1})`,
             backgroundPosition: "50% 0%",
           }}
-        >
-          {/* <img
-            src={mumbai1}
-            alt="Construction site with tower cranes and concrete structures during golden hour"
-            className="w-full h-full object-cover"
-          /> */}
-        </div>
+        ></div>
       </div>
     </section>
   );

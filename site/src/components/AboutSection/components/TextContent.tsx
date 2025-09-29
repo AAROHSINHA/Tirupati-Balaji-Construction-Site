@@ -1,4 +1,12 @@
+import { useState } from "react";
 export default function TextContent() {
+  const [showContent, setShowContent] = useState("hidden");
+
+  const showClick = () => {
+    if (showContent == "hidden") setShowContent("");
+    else setShowContent("hidden");
+  };
+
   return (
     <div className="space-y-6">
       <div className="text-center lg:text-left">
@@ -23,7 +31,8 @@ export default function TextContent() {
           interior details.
         </p>
         <br />
-        <p>
+
+        <p className={`${showContent} md:block`}>
           We believe in quality craftsmanship, timely project completion, and
           customer satisfaction, making us a reliable choice for clients seeking
           durability and aesthetic excellence. At Tirupati Balaji Constructions,
@@ -31,6 +40,13 @@ export default function TextContent() {
           that stand the test of time. Whether it’s a small renovation or a
           complete home construction, we are committed to turning your vision
           into reality with professionalism and dedication.
+        </p>
+
+        <p
+          className="block text-center px-2 text-sm font-medium tracking-wide text-yellow-500 cursor-pointer my-2 hover:text-yellow-300 transition-colors duration-200 md:hidden pt-2"
+          onClick={showClick}
+        >
+          {showContent == "" ? "SHOW LESS" : "SHOW MORE"}
         </p>
       </div>
     </div>
