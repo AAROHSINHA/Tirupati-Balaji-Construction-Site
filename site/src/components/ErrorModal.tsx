@@ -11,7 +11,7 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+    <div className="fixed top-0 left-0 w-screen h-screen bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg shadow-xl max-w-sm w-full p-8 relative">
         {/* Close button */}
         <button
@@ -53,7 +53,7 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
             {/* Action Buttons */}
             <div className="flex flex-col gap-3 pt-4">
               <a
-                href="https://wa.me/9987897573"
+                href="https://wa.me/919987897573"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-yellow-500 text-white text-center py-2 rounded-lg hover:bg-yellow-600 transition-colors"
@@ -61,7 +61,7 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
                 Contact on WhatsApp
               </a>
               <a
-                href="tel:+9987897573"
+                href="tel:+919987897573"
                 className="flex-1 bg-yellow-500 text-white text-center py-2 rounded-lg hover:bg-yellow-600 transition-colors"
               >
                 Call Now

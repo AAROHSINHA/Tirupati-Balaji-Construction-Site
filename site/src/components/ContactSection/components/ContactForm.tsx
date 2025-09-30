@@ -4,6 +4,7 @@ import axios from "axios";
 import type React from "react";
 import { useState } from "react";
 import ErrorModal from "../../ErrorModal";
+import LoadingScreen from "../../../Loading";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export default function ContactForm() {
     message: "",
   });
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,6 +33,7 @@ export default function ContactForm() {
     if (!firstName || !lastName || !email || !subject || !message) {
       return;
     }
+    setLoading(true);
     try {
       await axios.post(
         "https://tirupati-balaji-construction-site-zkn6.onrender.com/send-form",
@@ -44,11 +47,14 @@ export default function ContactForm() {
       );
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="space-y-6" id="contact">
+      <LoadingScreen isLoading={loading} />
       <ErrorModal isOpen={error} onClose={() => setError(false)} />
       <h1 className="text-2xl font-bold text-foreground">Contact Us</h1>
 
@@ -141,7 +147,7 @@ export default function ContactForm() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="px-5 py-2 bg-gray-700 hover:bg-gray-800 text-yellow-400 font-medium text-sm transition-colors"
+            className="px-5 py-2 bg-gray-700 hover:bg-gray-800 text-yellow-400 font-medium text-sm transition-colors hover:cursor-pointer"
           >
             Submit
           </button>

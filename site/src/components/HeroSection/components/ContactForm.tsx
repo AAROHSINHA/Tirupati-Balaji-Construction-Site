@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import ErrorModal from "../../ErrorModal";
-// a
+import LoadingScreen from "../../../Loading";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -9,10 +9,12 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const setSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !phone || !message) return;
+    setLoading(true);
     try {
       await axios.post(
         "https://tirupati-balaji-construction-site-zkn6.onrender.com/send-email",
@@ -25,11 +27,14 @@ export default function ContactForm() {
       );
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="w-full max-w-lg mx-auto p-6">
+      <LoadingScreen isLoading={loading} />
       <ErrorModal isOpen={error} onClose={() => setError(false)} />
       <div className="backdrop-blur-md bg-black/10 rounded-2xl p-6 border border-white/10 shadow-2xl">
         <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
