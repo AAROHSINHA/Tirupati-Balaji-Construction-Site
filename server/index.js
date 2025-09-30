@@ -1,14 +1,14 @@
-// server.js
 const express = require("express");
-const nodemailer = require("nodemailer");
 const cors = require("cors");
+const fetch = require("node-fetch");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
 app.use(express.json());
 
+const PORT = process.env.PORT || 3000;
+
+// CORS setup
 const corsOptions = {
   origin: [
     "http://localhost:5173",
@@ -20,59 +20,52 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// ---------- Mailtrap SMTP transporter ----------
-const transporter = nodemailer.createTransport({
-  host: process.env.MAILTRAP_HOST || "smtp.mailtrap.live",
-  port: Number(process.env.MAILTRAP_PORT || 587),
-  secure: false, // use STARTTLS (false for port 587)
-  auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASS,
-  },
-});
+const MAILTRAP_URL = "https://send.api.mailtrap.io/api/send";
+const MAILTRAP_TOKEN = process.env.MAILTRAP_API_TOKEN;
+const EMAIL_RECEIVER = process.env.EMAIL_RECEIVER;
 
-// Verify transporter on startup (logs helpful info)
-transporter
-  .verify()
-  .then(() => console.log("✅ Mailtrap SMTP ready"))
-  .catch((err) =>
-    console.warn(
-      "⚠️ Mailtrap SMTP verify failed (SMTP may be blocked on host). Error:",
-      err.message
-    )
-  );
-
-// ---------- Routes ----------
+// Root check
 app.get("/", (req, res) => {
-  return res.status(200).send("WORKS FINE with Mailtrap 🚀");
+  return res.status(200).send("✅ Mailtrap API server running!");
 });
 
-// send email (project details)
+// 📩 send-email route (project details)
 app.post("/send-email", async (req, res) => {
   const { name, email, phone, message } = req.body;
 
-  const mailOptions = {
-    from: `"Tirupati Balaji 👷" <${
-      process.env.MAIL_FROM || "no-reply@tirupatibalajiconstruction.in"
-    }>`, // MUST be a verified sending address/domain
-    to: process.env.EMAIL_RECEIVER,
+  const payload = {
+    from: {
+      email: "no-reply@tirupatibalajiconstruction.in", // domain you verified in Mailtrap
+      name: "Tirupati Balaji 👷",
+    },
+    to: [{ email: EMAIL_RECEIVER }],
     subject: `PROJECT DETAILS SUBMISSION FROM ${name ? name : "ANONYMOUS"}`,
-    text: `Name: ${name || "—"}
-Email: ${email || "—"}
-Phone: ${phone || "—"}
-
-Message:
-${message || "—"}`,
-    replyTo: email || undefined,
+    text: `
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone}
+      Message: ${message}
+    `,
+    reply_to: { email },
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Mail sent:", info.messageId);
-    res.status(200).json({
-      message: "Email sent successfully via Mailtrap!",
-      id: info.messageId,
+    const response = await fetch(MAILTRAP_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${MAILTRAP_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     });
+
+    if (!response.ok) {
+      throw new Error(`Mailtrap API error: ${response.statusText}`);
+    }
+
+    res
+      .status(200)
+      .json({ message: "Email sent successfully via Mailtrap API!" });
   } catch (error) {
     console.error("Error sending email:", error);
     res
@@ -81,32 +74,43 @@ ${message || "—"}`,
   }
 });
 
-// send email from contact form
+// 📩 send-form route (contact form)
 app.post("/send-form", async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
-  const mailOptions = {
-    from: `"Tirupati Balaji 👷" <${
-      process.env.MAIL_FROM || "no-reply@tirupatibalajiconstruction.in"
-    }>`,
-    to: process.env.EMAIL_RECEIVER,
-    subject: `CONTACT FORM SUBMISSIONS: ${subject ? subject : "No Subject"}`,
-    text: `First Name: ${firstName || "—"}
-Last Name: ${lastName || "—"}
-Email: ${email || "—"}
-Subject: ${subject || "—"}
-
-Message:
-${message || "—"}`,
-    replyTo: email || undefined,
+  const payload = {
+    from: {
+      email: "no-reply@tirupatibalajiconstruction.in", // domain verified in Mailtrap
+      name: "Tirupati Balaji 👷",
+    },
+    to: [{ email: EMAIL_RECEIVER }],
+    subject: `CONTACT FORM SUBMISSION: ${subject ? subject : "No Subject"}`,
+    text: `
+      First Name: ${firstName}
+      Last Name: ${lastName}
+      Email: ${email}
+      Subject: ${subject}
+      Message: ${message}
+    `,
+    reply_to: { email },
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Form mail sent:", info.messageId);
+    const response = await fetch(MAILTRAP_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${MAILTRAP_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Mailtrap API error: ${response.statusText}`);
+    }
+
     res.status(200).json({
-      message: "Contact form email sent via Mailtrap!",
-      id: info.messageId,
+      message: "Contact form email sent successfully via Mailtrap API!",
     });
   } catch (error) {
     console.error("Error sending form email:", error);
@@ -117,5 +121,5 @@ ${message || "—"}`,
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ SERVER RUNNING ON PORT ${PORT}`);
+  console.log(`🚀 SERVER RUNNING ON PORT ${PORT}`);
 });
