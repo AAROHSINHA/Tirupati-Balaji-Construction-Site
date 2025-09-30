@@ -22,8 +22,8 @@ export default function TextContent() {
           partner for all kinds of construction and renovation needs. With years
           of expertise, we specialize in delivering complete solutions for both
           residential and commercial projects. From{" "}
-          <b>building strong structures</b>
-          to <b>designing functional and stylish interiors</b>, we handle every
+          <b>building strong structures</b> to{" "}
+          <b>designing functional and stylish interiors</b>, we handle every
           aspect of construction with precision and care. Our services cover
           everything from <b>plumbing</b>, <b>painting</b>, <b>flooring</b>, and{" "}
           <b>bathroom construction</b> to <b>full-scale home development</b>,

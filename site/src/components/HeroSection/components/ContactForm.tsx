@@ -12,7 +12,6 @@ export default function ContactForm() {
 
   const setSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log([name, email, phone, message]);
     if (!name || !email || !phone || !message) return;
     try {
       await axios.post(
@@ -26,7 +25,6 @@ export default function ContactForm() {
       );
     } catch (error) {
       setError(true);
-      console.log(error);
     }
   };
 

@@ -37,7 +37,7 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
                 href="tel:+1234567890"
                 className="text-yellow-400 hover:text-yellow-500"
               >
-                +1 (234) 567-8900
+                +91 99878 87573
               </a>
             </div>
             <div>
@@ -46,7 +46,7 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
                 href="mailto:support@example.com"
                 className="text-yellow-400 hover:text-yellow-500"
               >
-                support@example.com
+                tirupatibalajiconstruction462@gmail.com
               </a>
             </div>
           </div>

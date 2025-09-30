@@ -28,7 +28,6 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { firstName, lastName, email, subject, message } = formData;
-    console.log("Hello");
     if (!firstName || !lastName || !email || !subject || !message) {
       return;
     }
@@ -45,7 +44,6 @@ export default function ContactForm() {
       );
     } catch (error) {
       setError(true);
-      console.log(error);
     }
   };
 

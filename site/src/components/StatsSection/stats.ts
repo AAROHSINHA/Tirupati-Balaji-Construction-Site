@@ -1,6 +1,6 @@
 export const stats = [
   {
-    number: 1994,
+    number: 2002,
     label: "Year\nEstablished",
     plus: false,
   },
