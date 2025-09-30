@@ -34,19 +34,37 @@ export default function ErrorModal({ isOpen, onClose }: ErrorModalProps) {
             <div>
               <span className="font-medium text-gray-900">Phone : </span>
               <a
-                href="tel:+1234567890"
+                href="tel:+919987897573"
                 className="text-yellow-400 hover:text-yellow-500"
               >
-                +91 99878 87573
+                +91 99878 97573
               </a>
             </div>
             <div>
               <span className="font-medium text-gray-900">Email : </span>
               <a
-                href="mailto:support@example.com"
+                href="mailto:tirupatibalajiconstruction462@gmail.com"
                 className="text-yellow-400 hover:text-yellow-500"
               >
                 tirupatibalajiconstruction462@gmail.com
+              </a>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-3 pt-4">
+              <a
+                href="https://wa.me/9987897573"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-yellow-500 text-white text-center py-2 rounded-lg hover:bg-yellow-600 transition-colors"
+              >
+                Contact on WhatsApp
+              </a>
+              <a
+                href="tel:+9987897573"
+                className="flex-1 bg-yellow-500 text-white text-center py-2 rounded-lg hover:bg-yellow-600 transition-colors"
+              >
+                Call Now
               </a>
             </div>
           </div>
