@@ -18,7 +18,7 @@ export default function () {
             href="tel:123-456-7890"
             className="block font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            Tel: +91 99878 87573
+            Tel: +91 99878 97573
           </a>
         </div>
       </div>

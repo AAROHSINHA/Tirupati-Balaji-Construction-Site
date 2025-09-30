@@ -23,7 +23,7 @@ export default function ToolTip({ className = "", setIsHover }: TooltipProps) {
         <div className="text-gray-600">
           <div className="flex items-center gap-2">
             <span className="text-gray-500">Phone:</span>
-            <span>+91 99878 87573</span>
+            <span>+91 99878 97573</span>
           </div>
         </div>
       </div>

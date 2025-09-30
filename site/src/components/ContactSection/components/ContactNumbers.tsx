@@ -9,7 +9,7 @@ export default function ContactNumbers() {
 
       {/* Numbers */}
       <div className="text-lg text-gray-700 leading-relaxed space-y-1">
-        <p>+91 99878 87573</p>
+        <p>+91 99878 97573</p>
         {/* <p>+91 91234 56789</p>
         <p>+91 99887 77665</p> */}
       </div>

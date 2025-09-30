@@ -92,7 +92,7 @@ export default function ContactForm() {
       <div className="fixed right-6 bottom-6 flex flex-col gap-4">
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/99878 87573"
+          href="https://wa.me/99878 97573"
           className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
         >
           <svg
@@ -106,7 +106,7 @@ export default function ContactForm() {
 
         {/* Phone Button */}
         <a
-          href="tel:+99878 87573"
+          href="tel:99878 97573"
           className="w-14 h-14 bg-yellow-400 hover:bg-yellow-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
         >
           <svg
